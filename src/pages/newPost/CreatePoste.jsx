@@ -46,10 +46,10 @@ const CreatePoste = () => {
             body,
             tagArray,
             uid: user.uid,
-            createBy: user.diplayName,
+            createdBy: user.diplayName,
         })
 
-        //redirecionamento para a home
+        //redirecionamento para a home após a criação do post
         //navigate("/")
     }
     return (
@@ -87,7 +87,7 @@ const CreatePoste = () => {
 
 
 
-                {!response.loading && <input type="submit" value="Criar Post" className={styles.send} onClick={console.log(title, body, tags, image)} />}
+                {!response.loading && <input type="submit" value="Criar Post" className={styles.send}  />}
                 {response.loading && <input type="submit" value="Aguarde..." disabled className={styles.send} />}
                 {response.error && <p>{response.error}</p>}
                 {formError.error && <p>{response.error}</p>}

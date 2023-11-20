@@ -52,10 +52,10 @@ export const useInsertDocument = (docCollection) => {
       checkCancelBeforeDispatch({ type: "ERROR", payload: error.message });
     }
   };
-/*
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
-*/
+
   return { insertDocument, response };
 };
