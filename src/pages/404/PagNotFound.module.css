@@ -1,0 +1,17 @@
+.title{
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: royalblue;
+    color: #fff;
+    font-weight: 600;
+    border-radius: .5rem;
+    width: 25%;
+  
+}
+.par{
+    margin: 1rem auto;
+    font-size: 1.2rem;
+    text-align: center;
+}

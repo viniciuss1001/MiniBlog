@@ -1,0 +1,12 @@
+.footerContainer{
+    width: 100%;
+    padding: 1rem;
+    background-color: #000;
+    display: flex;
+    margin-top: 4rem;
+}
+.footerCol{
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+}

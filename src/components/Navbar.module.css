@@ -1,0 +1,44 @@
+
+.header{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: royalblue;
+}
+.logo{
+    color: #fff;
+    float: left;
+    margin: auto auto auto 0
+    ;
+}
+.logo span{
+    color: #000;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+.logo i{
+    margin: auto 1rem;
+    font-size: 1.4rem;
+}
+.header .nav{
+    padding: 1rem;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    background-color: none;
+}
+.link{
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: .3s ease;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: none;
+    padding: 1rem ;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+
+}

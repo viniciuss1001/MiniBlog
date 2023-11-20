@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+}
+.par{
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+}
+.link{
+    background-color: royalblue;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: .5rem;
+
+}
