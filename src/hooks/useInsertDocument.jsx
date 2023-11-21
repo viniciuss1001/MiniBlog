@@ -1,7 +1,10 @@
 //hook para a criação de posts
+import firebase from "firebase/compat/app";
+// Required for side-effects
+import "firebase/firestore";
 import { useState, useEffect, useReducer } from "react";
 import { db } from '../firebase/Config'
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, setDoc } from "firebase/firestore";
 
 const initialState = {
   loading: null,

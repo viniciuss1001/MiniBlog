@@ -32,7 +32,11 @@
     border:none;
     outline: none;
     border-bottom: 2px solid royalblue;
+    transition: .3s ease;
     
+}
+.form input:focus{
+    background-color: rgba(139, 163, 233, 0.515);
 }
 .form textarea{
     padding: .5rem;
@@ -40,6 +44,10 @@
     border:none;
     outline: none;
     border-bottom: 2px solid royalblue;
+    transition: .3s ease;
+}
+.form textarea:focus{
+    background-color: rgba(155, 174, 230, 0.471)
 }
 .send{
     margin-top: 1rem;

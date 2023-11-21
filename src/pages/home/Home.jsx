@@ -4,19 +4,25 @@ import styles from './Home.module.css'
 //hooks
 import {useNavigate, Link} from 'react-router-dom'
 import { useState } from 'react'
+import { useFetchDocuments } from '../../hooks/useFetchDocuments'
+import PostDetails from '../../components/PostDetails'
 
 //components
 
 
 const Home = () => {
     //para a pesquisa
+    const {documents: posts, loading, error} = useFetchDocuments("posts")
     const [query, setQuery] = useState()
-    const [posts] = useState([])
-
-
+    
+    const navigate = useNavigate()
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+
+        if(query){
+            return navigate(`/search?q=${query}`)
+        }
     }
 
 
@@ -36,7 +42,11 @@ const Home = () => {
             </form>
             <div>
                 {/*lista de posts */}
-
+                {!loading && <p>Carregando...</p>}
+                {posts && posts.map((post)=> <PostDetails
+                key={post.id}
+                post={post} />)}
+                {console.log(posts)}
                 {posts && posts.length === 0 && (
                     <div className={styles.container}>
                         <h2>Ainda não há postagens para serem exibidas</h2>

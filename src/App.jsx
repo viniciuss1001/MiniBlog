@@ -18,6 +18,8 @@ import Create from './pages/Create/Create';
 import CreatePoste from './pages/newPost/CreatePoste';
 import Dashboard from './pages/dashboard/Dashboard';
 import PagNotFound from './pages/404/PagNotFound';
+import Search from './pages/search/Search';
+import Post from './pages/post/Post';
 
 
 
@@ -49,9 +51,11 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
+            <Route path='/posts/:id' element={<Post />} />
             <Route path='/login' element={!user ? <Login /> :<Navigate to="/"/> } />
             <Route path='/create' element={!user ? <Create /> : <Navigate to="/"/>} />
             <Route path='/newpostage' element={user ? <CreatePoste /> : <Navigate to="/login"/>} />
+            <Route path='/search' element={<Search />} />
             <Route path='/dashboard' element={user ? <Dashboard /> : <Navigate to="/login"/>} />
             <Route path='*' element={<PagNotFound />} />
           </Routes>

@@ -46,11 +46,11 @@ const CreatePoste = () => {
             body,
             tagArray,
             uid: user.uid,
-            createdBy: user.diplayName,
+            createdBy: user.displayName,
         })
 
         //redirecionamento para a home após a criação do post
-        //navigate("/")
+        navigate("/")
     }
     return (
         <div className={styles.container}>

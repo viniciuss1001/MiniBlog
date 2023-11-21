@@ -1,3 +1,6 @@
+import firebase from "firebase/compat/app";
+// Required for side-effects
+import "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 

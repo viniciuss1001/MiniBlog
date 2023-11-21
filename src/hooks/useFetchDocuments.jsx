@@ -1,57 +1,56 @@
-import { useState, useEffect } from "react";
-import { db } from "../firebase/Config";
-import {
-    collection, 
-    querry,
-    orderBy,
-    onSnapshot,
-    where,
-    doc,
-    querySnapshot
-} from 'firebase/firestore'
 
+import { useState, useEffect } from 'react';
+import { db } from '../firebase/Config';
+import { collection, query, onSnapshot, where, orderBy, getDocs } from 'firebase/firestore'
 
-export const useFetchDocuments = (docCollection, search =null, uid= null) => {
-    const [documents, setDocuments] = useState(null)
+export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
-    const [error, setError] = useState(false)
+    const [documents, setDocuments] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(null);
 
-    const [loading, setLoading] = useState(null)
-
-    //leak para evitar o vazamento de memória
-
+    // deal with memory leak
     const [cancelled, setCancelled] = useState(false)
 
+    useEffect(() => {
 
-    useEffect(()=>{
-        async function loadData(){
-            if(cancelled){
-                return
-            }
+        const getUsers = async () => {
 
-            setLoading(true)
+            if (cancelled) return
 
-            const collectionRef = await collection(db,  docCollection);
+            setLoading(true);
+
+            const userCollectionRef = collection(db, docCollection);
 
             try {
                 let q;
 
-                q = await querry(collectionRef, orderBy("createdAt", "desc"));
-
-                //para trazer o dado renovado toda vez quehouver algum dado alterado
-                await onSnapshot(q, (querySnapshot)=>{
-                    //o firebase manda muitos dados dos documentos, por isso precisamos fazer um mapeamento e extrair somente o que precisamos
-                    setDocuments(
-                        querySnapshot.docs.map((document)=>({
-                            id: doc.id,
-                            
-                        }))
+                if (search) {
+                    q = await query(userCollectionRef,  where("tagArray", 'array-contains', search), orderBy("createdAt", "desc")
                     )
-                } )
+                }else if(uid){
+                    q = await query(userCollectionRef,  where("uid", "==", uid), orderBy("createdAt", "desc")
+                    )
+                }
+                else {
+                    
+                }
+
+                q = await getDocs(userCollectionRef);
+                setDocuments(q.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                })))
+                //console.log(documents)
             } catch (error) {
-                
+                console.log(error)
+                setError(error.message)
+                setLoading(false)
             }
 
         }
-    },[docCollection, search, uid, cancelled])
-} 
+        getUsers();
+    }, [docCollection, search, uid, cancelled])
+
+    return { documents, loading, error };
+}
