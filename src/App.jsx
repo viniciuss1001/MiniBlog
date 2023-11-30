@@ -20,6 +20,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import PagNotFound from './pages/404/PagNotFound';
 import Search from './pages/search/Search';
 import Post from './pages/post/Post';
+import PostEdit from './pages/formEdit/PostEdit'
 
 
 
@@ -52,6 +53,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/posts/:id' element={<Post />} />
+            <Route path='/post/edit/:id' element={user ? <PostEdit /> :<Navigate to="/"/> } />
             <Route path='/login' element={!user ? <Login /> :<Navigate to="/"/> } />
             <Route path='/create' element={!user ? <Create /> : <Navigate to="/"/>} />
             <Route path='/newpostage' element={user ? <CreatePoste /> : <Navigate to="/login"/>} />

@@ -4,3 +4,57 @@
     flex-direction: column;
     
 }
+.post_header{
+    margin: 1rem;
+    color: blue;
+    font-size: 2rem;
+    text-align: center;
+}
+.postContainer{
+    display: flex;
+    background-color: rgb(24, 36, 73);
+    border: none;
+    border-radius: .25rem;
+    flex-direction: column;
+    margin: 1rem auto;
+}
+.title{
+    color: #FFF;
+    margin: .5rem auto;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.image{
+    margin: 1rem auto;
+    width: 45%;
+    height: 45%;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.actions{
+    background-color: royalblue;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    border-top-right-radius: .5rem;
+    border-top-left-radius: .5rem;
+    
+}
+.btn{
+    padding: 1rem;
+    border-radius: .20rem;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+}
+.delete{
+    cursor: pointer;
+    padding: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: .20rem;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+}

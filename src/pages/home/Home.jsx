@@ -43,9 +43,7 @@ const Home = () => {
             <div>
                 {/*lista de posts */}
                 {!loading && <p>Carregando...</p>}
-                {posts && posts.map((post)=> <PostDetails
-                key={post.id}
-                post={post} />)}
+                {posts && posts.map((post)=> <PostDetails key={post.id} post={post} />)}
                 {console.log(posts)}
                 {posts && posts.length === 0 && (
                     <div className={styles.container}>

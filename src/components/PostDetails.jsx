@@ -7,9 +7,9 @@ import styles from './PostDetails.module.css'
 const PostDetails = ({post}) => {
     return (
         <div className={styles.container}>
-            <img src={post.image} />
             <h2 className={styles.title}>{post.title}</h2>
             <p className={styles.user}>{post.createdBy}</p>
+            <img src={post.image} alt={post.id} />
             <p>{post.body}</p>
             <div>
                 {post.tagArray.map((tag) => (

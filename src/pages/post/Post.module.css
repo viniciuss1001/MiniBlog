@@ -21,7 +21,7 @@
     padding: 1rem ;
     color: #fff;
     font-size: 1.25rem;
-    max-width: fit-content;
+    width: content;
     -mox-fit-content:fit-content;
     margin: .5rem;
 }
